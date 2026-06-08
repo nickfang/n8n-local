@@ -8,8 +8,15 @@ services:
     environment:
       - GENERIC_TIMEZONE=US/Central
       - TZ=US/Central
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_SECURE_COOKIE=false
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+      - N8N_TEMPLATES_ENABLED=false        # stops fetching the templates library
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=336
+      # - WEBHOOK_URL=https://n8n.
     volumes:
       - n8n_data:/home/node/.n8n
 
